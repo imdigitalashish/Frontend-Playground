@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .flexWrapper {
+            display: flex;
+            width: 620px;
+            height: 630px;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            counter-reset: name;
+        }
+
+        .flexWrapper>div {
+            background: url("https://picsum.photos/200");
+            min-width: 200px;
+            min-height: 200px;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            counter-increment: name;
+        }
+
+        .flexWrapper>div::after {
+            content: counter(name);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 200px;
+            height: 200px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-style: "segoe ui";
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flexWrapper">
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>
+        <div  alt=""></div>s
+    </div>
+
+
+
+</body>
+
+</html>
