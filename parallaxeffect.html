@@ -8,11 +8,12 @@
     <title>Parralax</title>
 
     <style>
-
         .image {
             position: absolute;
+            max-width: 300vw;
             transform: translateX(-50%) translateY(-50%);
         }
+
         img[data-status="inactive"] {
             display: none;
         }
@@ -34,7 +35,7 @@
     <img class="image" data-index="5" data-status="inactive" src="https://picsum.photos/300/400?a">
     <img class="image" data-index="6" data-status="inactive" src="https://picsum.photos/300/400?a">
     <img class="image" data-index="7" data-status="inactive" src="https://picsum.photos/300/400?a">
-  
+
 
 
 
@@ -46,6 +47,18 @@
 
         let globalIndex = 0
 
+        let lastTick = {
+            lastPosition: 0,
+            changePosition: (currentPosition) => {
+                if (Math.abs(currentPosition - lastTick.lastPosition) > 20) {
+
+                    lastTick.lastPosition = currentPosition;
+                    return true;
+                }
+                return false;
+            }
+        }
+
         window.addEventListener("mousemove", (e) => {
 
             const lead = images[globalIndex % images.length];
@@ -53,10 +66,13 @@
             lead.style.left = `${e.clientX}px`;
             lead.style.top = `${e.clientY}px`;
 
-            lead.dataset.status="active";
+            lead.dataset.status = "active";
 
 
-            globalIndex++;
+            if (lastTick.changePosition(e.clientX)) {
+                globalIndex++;
+
+            }
 
         })
 
