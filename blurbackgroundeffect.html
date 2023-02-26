@@ -11,6 +11,13 @@
 
 
     <style>
+
+
+/* @font-face {
+    font-family: "Humane";
+    src: url("fonts/humane/Humane-Thin.otf");
+} */
+
         * {
             margin: 0;
             padding: 0;
@@ -18,9 +25,21 @@
 
         body {
             background-color: black;
+            font-family: "Poppins";
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            color: white;
+            z-index: 4;
+            letter-spacing: 2px;
         }
 
         .blobEffect {
+            z-index: -1;
             width: 400px;
             height: 400px;
             border-radius: 100%;
@@ -47,6 +66,10 @@
 
 <body>
 
+
+
+
+    <h1>Re Imagnie The Future</h1>
 
 
     <div class="blobEffect">
