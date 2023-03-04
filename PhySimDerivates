@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <input onratechange="changeText(this)" type="range">
+
+  <canvas></canvas>
+
+  <script>
+  let canvas = document.querySelector("canvas");
+let ctx = canvas.getContext('2d');
+
+canvas.width = 700;
+canvas.height = 500;
+
+let myFunc = (x) => {
+  let eval = 2*x**2
+  return eval
+}
+
+let array = {};
+
+[...Array(20)].forEach((_, index)=>{
+  array[index] = myFunc(index)
+  array[-index] = myFunc(-index)
+});
+
+console.log(array)
+
+
+
+
+Object.keys(array).forEach(elem=>{
+  
+  ctx.fillRect(elem * 20 + 200, -array[elem] + 200, 4,4);
+})
+
+function changeText(number) {
+  console.log(number)
+}
+  
+  
+  
+  </script>
+</body>
+
+</html>
